@@ -1,0 +1,45 @@
+RIM-COD-SHA1-4: a9 f0 97 ed 84 59 17 c2 50 09 af ae f2 28 6f d7 14 c1 c6 94
+RIM-COD-SHA1-3: 96 53 c8 ff bc 66 f4 6e 2e cb db f2 7c f9 50 40 c8 58 37 08
+RIM-COD-SHA1-2: 4d d0 cf 32 68 e1 ff 57 fb cc a6 a2 4c 49 8c 2d f9 c6 18 4e
+RIM-COD-SHA1-1: 63 8a dd 07 c0 f3 47 67 fe e4 f7 49 b8 e5 a6 b6 e1 3b 6d 2c
+RIM-MIDlet-Flags-1: 0
+MIDlet-Jar-Size: 491388
+MIDlet-Name: testAccel
+MIDlet-Jar-URL: testAccel.jar
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Description: An application to test acceleration.
+RIM-COD-URL-8: testAccel-8.cod
+RIM-COD-URL-7: testAccel-7.cod
+RIM-COD-URL-6: testAccel-6.cod
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_bb_browser_field2_api,net_rim_os,net_rim_bb_web_jse_api,net_rim_networkapi,net_rim_bb_browser_field_api,net_rim_xml_org,net_rim_bbapi_push,net_rim_xml,net_rim_bbapi_browser
+RIM-COD-URL-5: testAccel-5.cod
+RIM-COD-URL-4: testAccel-4.cod
+RIM-COD-URL-3: testAccel-3.cod
+RIM-COD-URL-2: testAccel-2.cod
+RIM-COD-URL-1: testAccel-1.cod
+RIM-COD-Size-8: 54424
+RIM-COD-Size-7: 49924
+RIM-COD-Size-6: 49920
+RIM-COD-Size-5: 49920
+RIM-COD-Size-4: 52060
+RIM-COD-Size-3: 57772
+RIM-COD-Module-Name: testAccel
+RIM-COD-Size-2: 56324
+RIM-MIDlet-Icon-Count-2: 1
+RIM-MIDlet-Icon-2-1: ____HOVER_ICON_resources/icon.png,focused
+RIM-COD-Size-1: 56420
+RIM-MIDlet-Icon-Count-1: 1
+RIM-COD-SHA1: e3 bc 87 8e a2 9a 21 8f f3 c9 50 08 43 b1 9c dc 13 6d df a7
+RIM-COD-Size: 65188
+MicroEdition-Profile: MIDP-2.0
+RIM-MIDlet-Icon-1-1: resources\____HOVER_ICON_icon.png,focused
+MIDlet-Vendor: Johnny Lam
+MIDlet-1: testAccel,resources/icon.png,rim:foreground;WIDGET;
+RIM-COD-URL: testAccel.cod
+Manifest-Version: 1.0
+MIDlet-Version: 1.0.0.0
+RIM-COD-SHA1-8: 73 e1 eb 3f a8 72 94 7c ec 87 8a bd a0 ee 7f ec 20 b1 2e 31
+RIM-COD-SHA1-7: d2 de 17 3e 63 5e 8a c7 6d 4a 2b 26 bb 67 35 29 9d 5c 36 76
+RIM-COD-SHA1-6: b1 cd 95 5e 8b 68 8d 51 07 6e 45 64 2b 49 91 71 36 5c e5 c7
+RIM-COD-Creation-Time: 1335458218
+RIM-COD-SHA1-5: 64 ad d4 8a 8d de 54 ad c3 80 ab 7e d4 56 c8 7f 0b a6 ba 6f
