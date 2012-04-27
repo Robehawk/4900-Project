@@ -11,11 +11,11 @@ var console_log;                // Debugging div on device
             var y;                          // Circle y position
             var vx = 0;                     // Velocity x axis
             var vy = 0;                     // Velocity y axis
-            var WIDTH = 320;                // Width of canvas
-            var HEIGHT = 300;               // Height of canvas
-            var RADIUS = 50;                // Width of circle object
-            var CIRCLE_COLOR = "#000000";      // Circle color
-            var CANVAS_COLOR = "#FAF7F8";   // Color of canvas background
+            var WIDTH = 400;                // Width of canvas
+            var HEIGHT = 400;               // Height of canvas
+            var RADIUS = 40;                // Width of circle object
+            var CIRCLE_COLOR = "#8ED6FF";      // Circle color
+            var CANVAS_COLOR = "#FFFFFF";   // Color of canvas background
             var watchID;                    // Accelerometer.watchAcceleration return value.
             var drawID;                     // Draw time interval.
             var playing = true;             // Boolean if animation is playing.
@@ -94,8 +94,11 @@ var console_log;                // Debugging div on device
             function circle( x, y, r )
             {
                 canvas_ctx.beginPath();
-                canvas_ctx.arc(x, y, r, 0, Math.PI*2, true);
+                canvas_ctx.arc(x, y, r, 0, Math.PI*2, false);
                 canvas_ctx.fill();
+				canvas_ctx.lineWidth = 5;
+				canvas_ctx.strokeStyle = "black";
+				canvas_ctx.stroke();
             }
             /* Draw rectangle */
             function rect( x, y, w, h )
@@ -146,13 +149,13 @@ var console_log;                // Debugging div on device
                 }
 
                 // Debugging info.
-                //console_log.innerHTML =
-                //'x: ' + x + '<br />' +
-                //'y: ' + y + '<br />' +
-                //'vx: ' + vx + '<br />' +
-                //'vy: ' + vy + '<br />' +
-                //'ax: ' + ax + '<br />' +
-                //'ay: ' + ay + '<br />' ;    
+                console_log.innerHTML =
+                'x: ' + x + '<br />' +
+                'y: ' + y + '<br />' +
+                'vx: ' + vx + '<br />' +
+                'vy: ' + vy + '<br />' +
+                'ax: ' + ax + '<br />' +
+                'ay: ' + ay + '<br />' ;    
 
                 /* Draw frame */
                 // Clear canvas
