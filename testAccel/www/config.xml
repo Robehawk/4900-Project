@@ -2,8 +2,8 @@
 
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-		xmlns:gap = "http://phonegap.com/ns/1.0"
-	version="1.0.0.0">
+		version="1.0.0.0"
+		rim:header="RIM-Widget:rim/widget">
 
   <name>testAccel</name>
   <author>Johnny Lam</author>
@@ -11,13 +11,20 @@
       An application to test acceleration.
   </description>
   <content src="index.html" />
+  
+  <feature id="blackberry.app" version="1.0.0"/>
+  <feature id="blackberry.ui.dialog" required="true" version="1.0.0"/>
+  <feature id="blackberry.invoke" required="true" version="1.0.0"/>
+  <feature id="blackberry.system" required="true" version="1.0.0"/>
+  
   <icon rim:hover="false" src="resources/icon.png" />
   <icon rim:hover="true" src="resources/icon.png" />
+  
+  <rim:orientation mode="portrait" />
 
   <rim:loadingScreen backgroundColor="#CFCFCF"
                      foregroundImage="resources/loading_foreground.png"
 		     onFirstLaunch="true">
     <rim:transitionEffect type="fadeOut" />
   </rim:loadingScreen>
-  
 </widget>
