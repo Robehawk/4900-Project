@@ -1,22 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+>
     <head>
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-        <meta charset="utf-8">
-        <script type="text/javascript" charset="utf-8" src="js/cordova-1.6.1.js"></script>
-        <script type="text/javascript" src="js/testAccel.js"></script>
+        <title>Derp acceleration</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+		<meta charset="utf-8" />
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+        <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.js"></script>
     </head>
-    <body onload="onBodyLoad()" style = "text-align:center;background-color:#ccc;padding:0px;margin:0px;">
-        <div>
-            <h1 style = "font-size:20px;margin-bottom:0px;margin-top:0px;padding-top:0px;">Accelerometer + HTML5 Canvas</h1>
-            <canvas id="canvas" width="320" height="300" ontouchend = "canvasTouchEnd();" >
-                This text is displayed if your browser
-                does not support HTML5 Canvas.
-            </canvas>
-            <div id = "console_div" style = "position:absolute;text-align:left;margin:2px;border:1px solid black;background-color:#fff;top:330px;left:0px;width:314px;height:118px;overflow:auto;"
-                >
-            </div>
-        </div>
+    <body onload="init()">
+		<canvas id="myCanvas" width="1024" height="600">
+		Your browser does not support the canvas element.
+		</canvas>
+
+		<script type="text/javascript">
+		
+		function init() {
+		
+			draw();
+			callAcceleration();
+
+		}
+		
+		function draw() {
+		
+		/* Initialize and draw canvas */
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		ctx.canvas.width = document.width;
+		ctx.canvas.height = document.height;
+		ctx.fillStyle="#0088aa";
+		ctx.beginPath();
+		ctx.arc(400,400,30,0,Math.PI*2,true);
+		ctx.closePath();
+		ctx.fill();
+		
+		}
+		function callAcceleration() {
+		
+		/* Initialize and listen on acceleration */
+		window.addEventListener("devicemotion", function(event) {
+
+		var ax = "Acceleration X value- " + event.accelerationIncludingGravity.x;
+		var ay = "Acceleration Y value- " + event.accelerationIncludingGravity.y;
+		var az = "Acceleration Z value- " + event.accelerationIncludingGravity.z;
+
+		alert(ax+"\n"+ay+"\n"+az);
+
+		}, true);
+		
+		}
+		</script>
     </body>
 </html>

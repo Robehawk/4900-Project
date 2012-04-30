@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Widget Configuration Reference:
+    http://docs.blackberry.com/en/developers/deliverables/15274/
+-->
+
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+	version="1.0.0.12">
+
+  <name>deeeeeeeerp</name>
+
+  <description>
+      A sample application written my pants
+  </description>
+
+  <icon rim:hover="false" src="resources/icon.png" />
+  <icon rim:hover="true" src="resources/icon.png" />
+
+  <rim:loadingScreen backgroundColor="#CFCFCF"
+                     foregroundImage="resources/loading_foreground.png"
+		     onFirstLaunch="true">
+    <rim:transitionEffect type="fadeOut" />
+  </rim:loadingScreen>
+
+  <content src="index.html" />
+
+
+</widget>
