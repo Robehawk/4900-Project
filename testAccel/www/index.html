@@ -8,19 +8,18 @@
 		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
         <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.js"></script>
     </head>
-    <body onload="init()">
+    <body>
 		<canvas id="myCanvas" width="1024" height="600">
 		Your browser does not support the canvas element.
 		</canvas>
 
 		<script type="text/javascript">
 		
-		function init() {
-		
+		setInterval(function() {
+			
 			draw();
 			callAcceleration();
-
-		}
+			}, 1000/30);
 		
 		function draw() {
 		
@@ -45,7 +44,7 @@
 		var ay = "Acceleration Y value- " + event.accelerationIncludingGravity.y;
 		var az = "Acceleration Z value- " + event.accelerationIncludingGravity.z;
 
-		alert(ax+"\n"+ay+"\n"+az);
+		ctx.filltext(ax+"\n"+ay+"\n"+az,50,50);
 
 		}, true);
 		

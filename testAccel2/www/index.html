@@ -1,24 +1,151 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no">
-    <script type="text/javascript">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no">
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.js"></script>
+
+	<title>TestAccel2</title>
+</head>
+<body onLoad="init()">
+	<canvas id="datCanvas">
+	No es support
+	</canvas>
 	
-		window.addEventListener("devicemotion", function(event) {
+	<script type="text/javascript">
 
-				var ax = "Acceleration X value- " + event.accelerationIncludingGravity.x;
-				var ay = "Acceleration Y value- " + event.accelerationIncludingGravity.y;
-				var az = "Acceleration Z value- " + event.accelerationIncludingGravity.z;
+		var FPS = 30;
+		//Canvas Variables
+		var c=document.getElementById('datCanvas');
+		var canvas=c.getContext("2d");
+		canvas.canvas.width = document.width;
+		canvas.canvas.height = document.height;
+		//Accel Variables
+		var ax = "0.0"; //accel X axis
+		ax = parseInt(ax,10);
+		var ay = "0.0"; //accel Y axis
+		ay = parseInt(ay,10);
+		var az; //accel Z axis	
+		//Time Variables for the Physics brah
+		var prevTime = parseFloat(Time());
+		var newTime;
+		var dt = 0.00; //displacement
+		
+		//init function
 
-				alert(ax+"\n"+ay+"\n"+az);
+		function init () {
+					
+		}
 
-		}, true);
+		
+		//function to calculate the displacement (not working at all :/)
+		function calculateTime() {
+		newTime = parseFloat(Time());
+		dt = parseFloat(prevTime) - parseFloat(newTime);
+		prevTime = newTime;
+		};
+		
+		
+		
+		//interval of events occuring (thread)
+		setInterval(function() {
+			update();
+			draw();
+			}, 1000/FPS);
+		
+		//starting coordinates for the ball
+		var x = 300.00;
+		var y = 500.00;
+			
+		//ball object, including its draw function and dimensions and color	
+		var ball = {
+          draw: function() {
+            canvas.fillStyle = "#0088aa";
+			canvas.beginPath();
+			canvas.arc(x,y,20,20,Math.PI*2,true);
+			canvas.closePath();
+			canvas.fill();
+          }
+        };
+		
 
-    </script>
-    <title>deeeerp</title>
-  </head>
-  <body>
+		var startGate = {
+			draw: function() {
+			canvas.fillStyle = "blue";
+			canvas.fillRect(250,1000,100,20);
+			}
+		};
+		
+		var endGate = {
+			draw: function() {
+			canvas.fillStyle = "green";
+			canvas.fillRect(250,0,100,20);
+			}
+		};
+		
+		var wall = {
+			draw: function() {
+			canvas.fillStyle = "black";
+			canvas.fillRect(250,300,300,100);
+			}
+		};
+		
+		var velX = "20.0";
+		var velY = "10.0";
+		velX = parseInt(velX,10);
+		velY = parseInt(velY,10);
+		
+		//update the position of the ball (need da physics)
+		function update(){
+		/*
+		x += ax/newTime * dt;
+		y += ay/newTime * dt; */
+		
+		velX += parseFloat(ax);
+		velY += parseFloat(ay);
+				
+		x = x + (velX/5);
+		y = y + (velY/5);
+		}
+				
+		//Function to clear everything and then draw objects to the canvas
+		function draw() {
+		
+			canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+			ball.draw();
+			startGate.draw();
+			endGate.draw();
+			wall.draw();
+			canvas.fillStyle = "black"; //set color to black
 
-  </body>
+			window.addEventListener("devicemotion", function(event) {
+				ay = event.accelerationIncludingGravity.x;
+				ay = ay.toFixed(4);
+				ax = event.accelerationIncludingGravity.y;
+				ax = ax.toFixed(4);	
+				az = event.accelerationIncludingGravity.z;
+			}, true);
+			
+			canvas.fillText("Accel X: "+ax, 50, 50);
+			canvas.fillText("Accel Y: "+ay, 50, 60);
+			canvas.fillText("Accel Z: "+az, 50, 70);
+			calculateTime();
+			canvas.fillText("Displacement: "+dt, 50, 80);
+			canvas.fillText("Time: "+Time(), 50, 90);
+			canvas.fillText("Vel X: " +velX, 50, 100);
+			canvas.fillText("Vel Y: " +velY, 50, 110);
+			canvas.fillText("position x: " +x, 50, 120);
+			canvas.fillText("position y: " +y, 50, 130);
+			
+		};
+		
+		function Time(){
+			var time = new Date().getMilliseconds();
+			return time;
+		}
+		
+		
+
+	</script>
+</body>
 </html>

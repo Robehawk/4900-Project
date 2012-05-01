@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Widget Configuration Reference:
-    http://docs.blackberry.com/en/developers/deliverables/15274/
--->
-
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-	version="1.0.0.12">
+		version="900.0.0.1"
+		rim:header="RIM-Widget:rim/widget">
 
-  <name>deeeeeeeerp</name>
-
+  <name>Test Accel 2</name>
+  <author>Corey McDonnell</author>
   <description>
-      A sample application written my pants
+      An application to test acceleration.
   </description>
-
+  <content src="index.html" />
+  
+  <feature id="blackberry.app" version="1.0.0"/>
+  <feature id="blackberry.ui.dialog" required="true" version="1.0.0"/>
+  <feature id="blackberry.invoke" required="true" version="1.0.0"/>
+  <feature id="blackberry.system" required="true" version="1.0.0"/>
+  
   <icon rim:hover="false" src="resources/icon.png" />
   <icon rim:hover="true" src="resources/icon.png" />
+  
+  <rim:orientation mode="portrait" />
 
   <rim:loadingScreen backgroundColor="#CFCFCF"
                      foregroundImage="resources/loading_foreground.png"
 		     onFirstLaunch="true">
     <rim:transitionEffect type="fadeOut" />
   </rim:loadingScreen>
-
-  <content src="index.html" />
-
-
 </widget>
